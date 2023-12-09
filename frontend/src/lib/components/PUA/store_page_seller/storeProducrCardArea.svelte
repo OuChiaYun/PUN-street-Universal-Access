@@ -45,10 +45,13 @@
 			description={product.description}
 			price={product.price}
 			imgUrl={product.picture}
+			href={'./store_page_seller/' + product.product_id}
 			on:click={() => removeStoreProductCard(product.product_id)}
 		/>
+		<!-- href={'./store_page_seller/' + product.product_id} -->
 	{/each}
 	<div class="flex h-20 items-center justify-center">
-		<HashtagAdd on:click={addStoreProductCard}></HashtagAdd>
+		<HashtagAdd on:click={addStoreProductCard} href={'./store_page_seller/' + 'addItem'}
+		></HashtagAdd>
 	</div>
 </div>

@@ -2,6 +2,8 @@
 	import watermelon from '$lib/assets/watermelon.png';
 	import { Counter } from '$lib';
 	import { DiscountArea, Checkcontainer, OkButton, NeedChooseLabel } from '$lib/index';
+	import type { PageData } from './$types';
+	export let data: PageData;
 
 	let product: {
 		title: string;
@@ -44,16 +46,21 @@
 	};
 </script>
 
+<p>
+	{data.shop}
+</p>
+<p>item: {data.item}</p>
+<p>{data.item}</p>
 <div class="flex justify-center">
 	<div class="my-6 flex h-full w-4/5 flex-col gap-8">
-		<div class=" flex w-full items-center text-4xl text-PUA-dark-red">
+		<div class=" text-PUA-dark-red flex w-full items-center text-4xl">
 			{product.title}
 		</div>
 
 		<div class="flex gap-16">
 			<div class="">
 				<img src={product.picture} alt="" class="mt-100 flex h-60 w-60 rounded-lg object-cover" />
-				<div class="flex items-baseline gap-3 py-5 font-bold text-PUA-dark-red">
+				<div class="text-PUA-dark-red flex items-baseline gap-3 py-5 font-bold">
 					<p class="text-2xl">NT$</p>
 					<p class="text-4xl">{product.price}</p>
 				</div>
@@ -66,12 +73,12 @@
 					{#each product.choose as { need_choose, category, subcategories }}
 						<div class="">
 							<div class="flex items-center">
-								<div class="font-bold text-PUA-stone">{category}</div>
+								<div class="text-PUA-stone font-bold">{category}</div>
 								{#if need_choose}
 									<NeedChooseLabel></NeedChooseLabel>
 								{/if}
 							</div>
-							<div class="h-[1px] bg-PUA-dark-red"></div>
+							<div class="bg-PUA-dark-red h-[1px]"></div>
 							<div class="flex flex-col">
 								{#each subcategories as subcategory}
 									<Checkcontainer {category} {subcategory}></Checkcontainer>

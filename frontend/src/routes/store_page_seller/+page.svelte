@@ -4,6 +4,7 @@
 	import ChangeDiscountPage from '$lib/components/PUA/changeDiscountPage.svelte';
 	import StoreProducrCardArea from '$lib/components/PUA/store_page_seller/storeProducrCardArea.svelte';
 	import HashtagLabelArea from '$lib/components/PUA/store_page_seller/hashtagLabelArea.svelte';
+	import { page } from '$app/stores';
 
 	let prodctListResponse: {
 		name: string;
@@ -149,4 +150,5 @@
 		<div class="relative mx-5 h-6 space-y-4"></div>
 	</div>
 </div>
+<p>{$page.route.id}</p>
 <ChangeDiscountPage bind:changePageData bind:showModel></ChangeDiscountPage>

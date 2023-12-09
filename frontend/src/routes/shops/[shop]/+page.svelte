@@ -86,6 +86,7 @@
 	});
 </script>
 
+<p>{data.shop}</p>
 <div class="h-48 w-full overflow-hidden">
 	<img src={watermelon} alt="" class="w-full object-cover" />
 </div>
