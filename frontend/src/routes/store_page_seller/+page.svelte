@@ -150,5 +150,5 @@
 		<div class="relative mx-5 h-6 space-y-4"></div>
 	</div>
 </div>
-<p>{$page.route.id}</p>
+<!-- <p>{$page.route.id}</p> -->
 <ChangeDiscountPage bind:changePageData bind:showModel></ChangeDiscountPage>

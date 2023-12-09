@@ -46,11 +46,11 @@
 	};
 </script>
 
-<p>
+<!-- <p>
 	{data.shop}
 </p>
 <p>item: {data.item}</p>
-<p>{data.item}</p>
+<p>{data.item}</p> -->
 <div class="flex justify-center">
 	<div class="my-6 flex h-full w-4/5 flex-col gap-8">
 		<div class=" text-PUA-dark-red flex w-full items-center text-4xl">

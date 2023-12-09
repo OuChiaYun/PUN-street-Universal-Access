@@ -45,7 +45,7 @@
 			description={product.description}
 			price={product.price}
 			imgUrl={product.picture}
-			href={'./store_page_seller/' + product.product_id}
+			href={'./store_page_seller/' + 'edit product ' + product.product_id}
 			on:click={() => removeStoreProductCard(product.product_id)}
 		/>
 		<!-- href={'./store_page_seller/' + product.product_id} -->
