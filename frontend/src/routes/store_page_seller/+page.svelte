@@ -93,6 +93,28 @@
 		status: 1
 	};
 
+	let shopInfoResponse: {
+		store_id: number;
+		shipping_fee: number;
+		address: string;
+		rate_count: number;
+		rate: number;
+		name: string;
+		description: string;
+		picture: string;
+		status: number;
+	} = {
+		store_id: 1,
+		shipping_fee: 100,
+		address: '100台灣台北市中正區八德路一段82巷9弄17號',
+		rate_count: 10,
+		rate: 5,
+		name: 'Im pasta',
+		description: 'good pasta',
+		picture: 'https://i.imgur.com/1.jpg',
+		status: 1
+	};
+
 	let showProductCard = true;
 	let showModel = false;
 	let dis_haved: boolean;
@@ -144,9 +166,13 @@
 		shippingList = await init_shipping_discount.json();
 		dis_haved = shippingList ? true : false;
 
-		const init_store_data = await fetch(backendPath + `/store/1`);
+		// const init_store_data = await fetch(backendPath + `/store/1`);
 		// shopDataList = await init_store_data.json();
-		console.log(shopDataList);
+		// console.log(shopDataList);
+
+		// const resp = await fetch(backendPath + `/store/1`);
+		// shopInfoResponse = await resp.json();
+		// console.log(shopInfoResponse);
 	});
 </script>
 
