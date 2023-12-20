@@ -166,9 +166,9 @@
 		shippingList = await init_shipping_discount.json();
 		dis_haved = shippingList ? true : false;
 
-		// const init_store_data = await fetch(backendPath + `/store/1`);
-		// shopDataList = await init_store_data.json();
-		// console.log(shopDataList);
+		const init_store_data = await fetch(backendPath + `/store/1`);
+		shopDataList = await init_store_data.json();
+		console.log(shopDataList);
 
 		// const resp = await fetch(backendPath + `/store/1`);
 		// shopInfoResponse = await resp.json();
@@ -176,7 +176,6 @@
 	});
 </script>
 
-<!-- 
 <div class="h-48 w-full overflow-hidden">
 	<img src={watermelon} alt="" class="w-full object-cover" />
 </div>
@@ -229,4 +228,4 @@
 	</div>
 </div>
 <ChangeDiscountPage bind:changePageData={shippingList} bind:showModel bind:dis_haved
-></ChangeDiscountPage> -->
+></ChangeDiscountPage>
