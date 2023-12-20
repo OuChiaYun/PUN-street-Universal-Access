@@ -5,6 +5,7 @@
 	import StoreProductCardArea from '$lib/components/PUA/store_page_seller/storeProductCardArea.svelte';
 	import TagLabelArea from '$lib/components/PUA/store_page_seller/tagLabelArea.svelte';
 	import { onMount } from 'svelte';
+	import { backendPath } from '$lib/components/PUA/env';
 
 	interface productsType {
 		product_id: number;
@@ -34,16 +35,10 @@
 		address: string;
 		rate_count: number;
 		rate: number;
-		category_array: [
-			{
-				category_name: string;
-				category_id: number;
-			},
-			{
-				category_name: string;
-				category_id: number;
-			}
-		];
+		category_array: {
+			category_name: string;
+			category_id: number;
+		}[];
 		name: string;
 		description: string;
 		picture: string;
@@ -89,7 +84,7 @@
 			},
 			{
 				category_name: 'drink',
-				category_id: 2
+				category_id: 1
 			}
 		],
 		name: "i'm pasta",
@@ -136,26 +131,33 @@
 	onMount(() => {
 		toggleHeight();
 	});
+
 	onMount(async () => {
-		const init_product = await fetch(`/products.json`);
+		const init_product = await fetch(backendPath + `/store/1/products`);
 		productsList = await init_product.json();
-		const tag_category = await fetch(`/categories.json`);
+		// console.log(productsList);
+		// const init_product_2 = await fetch(`products.json`);
+		// productsList = await init_product_2.json();
+		const tag_category = await fetch(backendPath + `/categories`);
 		tagList = await tag_category.json();
-		const init_shipping_discount = await fetch(`/shipping-discount.json`);
+		const init_shipping_discount = await fetch(backendPath + `/store/1/shipping-discount`);
 		shippingList = await init_shipping_discount.json();
 		dis_haved = shippingList ? true : false;
-		const init_store_data = await fetch(`/store.json`);
-		shopDataList = await init_store_data.json();
+
+		const init_store_data = await fetch(backendPath + `/store/1`);
+		// shopDataList = await init_store_data.json();
+		console.log(shopDataList);
 	});
 </script>
 
+<!-- 
 <div class="h-48 w-full overflow-hidden">
 	<img src={watermelon} alt="" class="w-full object-cover" />
 </div>
 
 <div class="mt-10 lg:px-40">
 	<div class="mx-5 space-y-2">
-		<div class="text-5xl font-bold text-PUA-stone">{shopDataList.name}</div>
+		<div class="text-PUA-stone text-5xl font-bold">{shopDataList.name}</div>
 		<div class="font-bold text-red-950">{shopDataList.address}</div>
 		<div class="flex w-full justify-start gap-6">
 			<TagLabelArea
@@ -201,4 +203,4 @@
 	</div>
 </div>
 <ChangeDiscountPage bind:changePageData={shippingList} bind:showModel bind:dis_haved
-></ChangeDiscountPage>
+></ChangeDiscountPage> -->
